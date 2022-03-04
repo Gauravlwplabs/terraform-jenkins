@@ -31,6 +31,7 @@ variable "user" {
 
 variable "pass" {
   type = string
+  default = "India1947"
   sensitive = true
 }
 
