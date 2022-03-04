@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        PATH = "${PATH}:${TF_PATH()}"
+    }
     stages {
         stage('terraform init') {
             steps {
@@ -9,4 +11,8 @@ pipeline {
             }
         }
     }
+}
+def TF_PATH(){
+    def TF_HOME=tool name: 'Terraform', type: 'terraform'
+    return TF_HOME
 }
